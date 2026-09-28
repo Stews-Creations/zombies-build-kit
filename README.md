@@ -13,8 +13,11 @@ In development for Minecraft Java 26.2. Structure templates and the VR companion
 | `vr_mod/` | [zbk_vr_mod](https://github.com/Stews-Creations/zbk_vr_mod) | Optional Vivecraft companion mod |
 | `manager/` | [zbk_manager](https://github.com/Stews-Creations/zbk_manager) | Desktop authoring, installation, and export application |
 | `structures/` | [zbk_structures](https://github.com/Stews-Creations/zbk_structures) | Reusable building templates |
+| `maps/` | [zbk_maps](https://github.com/Stews-Creations/zbk_maps) | Finished-map catalog, installation guides, and release downloads |
 
 The initial implementation includes only reusable core systems. Nacht and Der Eisendrache-specific content and Blockbench authoring projects are outside its scope. Required exported runtime models and animations remain eligible for migration after their dependencies are checked.
+
+The [finished-map repository](https://github.com/Stews-Creations/zbk_maps) is separate from the core components. No finished maps are published there yet; future playable world downloads will be release assets, with compatibility and installation details for each map.
 
 ## Get the workspace
 

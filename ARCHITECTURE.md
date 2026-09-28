@@ -11,6 +11,7 @@ The parent repository coordinates independently versioned components. Implementa
 | `vr_mod/` | Optional client-side Fabric/Vivecraft integration | Does not own server gameplay |
 | `manager/` | Desktop installation, world preparation, and artifact packaging | Consumes component outputs and does not become their source of truth |
 | `structures/` | Reusable structure templates and their provenance | Shared placement, door animation, clearing, and reset functions consume world-installed templates |
+| `maps/` | Finished-map catalog, installation guides, credits, and release downloads | Optional consumer of versioned core components; playable world archives are release assets |
 
 Each component is a Git submodule with independent history. The parent records exact commits. A component may be developed independently, but changes to shared identifiers or installation contracts require integration validation before updating the parent.
 
@@ -19,6 +20,8 @@ Each component is a Git submodule with independent history. The parent records e
 The core datapack and base resource pack form a compatible pair. The VR mod and VR overlay are optional client additions. Manager is an optional authoring and distribution tool. External structure templates support both Build Kit placement and subsequent shared runtime operations, so the complete set stays installed in the world. Datapack-owned Pack-a-Punch templates remain a separate namespace and are not duplicated into the external bundle.
 
 Submodules manage source versions only. Future map add-ons will need an explicit gameplay interface and compatible core version. No add-on registration, dependency detection, or map selection system is implemented by this foundation.
+
+The maps component documents each finished map's tested dependency versions and installation requirements. Its submodule pin selects catalog documentation; it does not download playable worlds or make those maps dependencies of the core. Editable worlds and packaged downloads stay outside Git, and finished worlds are distributed through that repository's releases.
 
 ## Core migration boundary
 
@@ -30,7 +33,7 @@ Blockbench projects and authoring workspaces are excluded. Exported models and a
 
 ## Packaging contract
 
-Package explicit runtime roots rather than the entire development checkout. Exports must exclude repository metadata, local settings, development plans, assistant instructions/caches, Blockbench sources, and map-specific content. Git ignore rules alone do not filter filesystem-based packaging. Every distributed component must include its LICENSE.md, LICENSES/, NOTICE, and MEDIA_PERMISSION.md, together with applicable third-party notices. Custom-map downloads containing ZBK material must retain the corresponding notices and terms.
+Package explicit runtime roots rather than the entire development checkout. Exports must exclude repository metadata, local settings, development plans, assistant instructions/caches, and Blockbench sources. Core exports also exclude map-specific content; finished-map releases include only the selected map and its documented dependencies. Git ignore rules alone do not filter filesystem-based packaging. Every distributed component must include its LICENSE.md, LICENSES/, NOTICE, and MEDIA_PERMISSION.md, together with applicable third-party notices. Custom-map downloads containing ZBK material must retain the corresponding notices and terms.
 
 Required runtime binaries such as PNG, OGG, and NBT files remain versioned. Preserve build inputs such as lockfiles and the Gradle wrapper. Build output, downloaded dependencies, local worlds, test servers, and exported archives do not belong in source commits.
 
