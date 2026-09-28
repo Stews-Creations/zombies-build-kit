@@ -59,7 +59,7 @@ Put your response in `data/my_map/function/events/round_start.mcfunction`. Notif
 
 1. Copy the [datapack template](datapacks/zbk_template/README.md), rename its `zbk_template` identifiers to your own namespace, and retain the shared `zbk` event tag paths. Register your map with Core API `10000` (version `1.0.0`) and keep runtime inactive until Core accepts it. The template includes these lifecycle checks.
 2. Add only your map's behavior and assets. Use matching names for your datapack and resource pack, such as `my_map`, with assets under `assets/my_map/`. Refer to those assets by namespaced IDs. A resource pack supplies presentation; it does not register a map or run event handlers.
-3. Test Core alone and Core plus your add-on. Use the [API reference](datapacks/docs/API.md) for event context, public calls, blocking, and deferred starts. Core also controls Panzer round scheduling; without Panzer spawner markers, automatic Panzer spawns are disabled.
+3. Test Core alone and Core plus your add-on. Use the [API reference](datapacks/README.md#core-api-100) for event context, public calls, blocking, and deferred starts. Core also controls Panzer round scheduling; without Panzer spawner markers, automatic Panzer spawns are disabled.
 
 ### Pack selection and order
 
