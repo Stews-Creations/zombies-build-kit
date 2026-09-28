@@ -44,3 +44,12 @@ The [architecture overview](ARCHITECTURE.md) defines component ownership, depend
 We are not currently accepting outside development help or pull/merge requests while we establish the core project. Please hold off on submitting changes for inclusion.
 
 You are welcome to fork the repository and [open issues](https://github.com/Stews-Creations/zombies-build-kit/issues) to report bugs, suggest features, ask questions, or share feedback. We will update this section when we are ready to accept contributions.
+
+## License and credit
+
+Free noncommercial use, modification, and sharing are allowed with credit to
+[MiniStew](https://www.youtube.com/@MiniStew). Monetized videos and streams are
+allowed under the [media permission](MEDIA_PERMISSION.md). Selling covered ZBK
+content or maps containing it, or charging for server access, is not covered
+by that permission. See [licensing and attribution](LICENSE.md) for the code
+and asset licenses, their scope, and redistribution requirements.
