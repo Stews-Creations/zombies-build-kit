@@ -1,0 +1,15 @@
+[submodule "datapacks"]
+	path = datapacks
+	url = https://github.com/Stews-Creations/zbk_datapacks.git
+[submodule "resourcepacks"]
+	path = resourcepacks
+	url = https://github.com/Stews-Creations/zbk_resourcepacks.git
+[submodule "vr_mod"]
+	path = vr_mod
+	url = https://github.com/Stews-Creations/zbk_vr_mod.git
+[submodule "manager"]
+	path = manager
+	url = https://github.com/Stews-Creations/zbk_manager.git
+[submodule "structures"]
+	path = structures
+	url = https://github.com/Stews-Creations/zbk_structures.git
