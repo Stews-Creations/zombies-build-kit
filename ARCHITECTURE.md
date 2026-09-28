@@ -1,13 +1,13 @@
 # Core workspace architecture
 
-The parent repository coordinates independently versioned components. Implementation belongs in the component that owns its behavior; integration documentation and cross-component release checks belong here. Reusable structure templates and the VR companion mod have been migrated; the core gameplay, resource-pack, and Manager components remain foundations.
+The parent repository coordinates independently versioned components. Implementation belongs in the component that owns its behavior; integration documentation and cross-component release checks belong here. The shared gameplay datapack, core resource pack, optional Vivecraft overlay, structure templates, and VR companion are separate components. Manager remains a foundation.
 
 ## Ownership
 
 | Component | Owns | Boundary |
 | --- | --- | --- |
-| `datapacks/` | Server gameplay, persistent configuration, reusable authoring functions, gameplay validation | Must run without a map add-on |
-| `resourcepacks/` | Core models, textures, sounds, fonts, HUD, and optional VR presentation overrides | Matches core datapack resource identifiers |
+| `datapacks/` | Core gameplay, optional map behavior, persistent configuration, authoring functions, validation | Must run without a map add-on |
+| `resourcepacks/` | Core and map models, textures, sounds, fonts, HUD, and optional VR presentation overrides | Matches core datapack resource identifiers |
 | `vr_mod/` | Optional client-side Fabric/Vivecraft integration | Does not own server gameplay |
 | `manager/` | Desktop installation, world preparation, and artifact packaging | Consumes component outputs and does not become their source of truth |
 | `structures/` | Reusable structure templates and their provenance | Shared placement, door animation, clearing, and reset functions consume world-installed templates |
@@ -19,13 +19,13 @@ Each component is a Git submodule with independent history. The parent records e
 
 The core datapack and base resource pack form a compatible pair. The VR mod and VR overlay are optional client additions. Manager is an optional authoring and distribution tool. External structure templates support both Build Kit placement and subsequent shared runtime operations, so the complete set stays installed in the world. Datapack-owned Pack-a-Punch templates remain a separate namespace and are not duplicated into the external bundle.
 
-Submodules manage source versions only. Future map add-ons will need an explicit gameplay interface and compatible core version. No add-on registration, dependency detection, or map selection system is implemented by this foundation.
+Submodules manage source versions only. Map add-ons register through the [Core event API](datapacks/docs/API.md). Install one map provider alongside Core; conflicting or incompatible providers remain inactive. Core emits vanilla `#zbk:event/*` function tags, and add-ons call the public `zbk:api/*` functions. Nacht, Der Eisendrache, and the developer template are separate packs; no numeric map or sound selector is required. The core datapack and base resource pack both install as `zombies_build_kit`; their existing `zombies:` runtime identifiers stay stable. The optional `zombies_build_kit_vivecraft_overlay` changes held-weapon presentation and loads above the base pack.
 
 The maps component documents each finished map's tested dependency versions and installation requirements. Its submodule pin selects catalog documentation; it does not download playable worlds or make those maps dependencies of the core. Editable worlds and packaged downloads stay outside Git, and finished worlds are distributed through that repository's releases.
 
 ## Core migration boundary
 
-Retain reusable gameplay and authoring systems after checking their function and asset dependencies. Exclude map-exclusive Nacht and Der Eisendrache quests, set pieces, items, audio, UI, structures, and configuration. Shared folders and generated namespaces must be audited as well as map-specific folders.
+Retain reusable gameplay and authoring systems after checking their function and asset dependencies. Keep map-exclusive Nacht and Der Eisendrache quests, set pieces, items, audio, UI, structures, and configuration in their respective optional packs. Shared folders and generated namespaces must be audited as well as map-specific folders.
 
 Persistent markers and their configuration are authoritative. Runtime entities should be reconstructed through their owning module's initialization. Root lifecycle functions orchestrate responsibilities; generated model files contain presentation output rather than handwritten gameplay.
 

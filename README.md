@@ -2,20 +2,20 @@
 
 Zombies Build Kit is a Minecraft Java gameplay and map-authoring project. This repository coordinates the core components through Git submodules pinned to compatible commits.
 
-In development for Minecraft Java 26.2. Structure templates and the VR companion mod are available; core gameplay, resource packs, and Manager are not ready yet. There is no complete playable release.
+In development for Minecraft Java 26.2. Shared core datapack and resource packs, structure templates, and the VR companion mod are available for integration testing. Manager is not migrated, and no finished map is included.
 
 ## Components
 
 | Folder | Repository | Responsibility |
 | --- | --- | --- |
-| `datapacks/` | [zbk_datapacks](https://github.com/Stews-Creations/zbk_datapacks) | Core gameplay and reusable Build Kit functions |
-| `resourcepacks/` | [zbk_resourcepacks](https://github.com/Stews-Creations/zbk_resourcepacks) | Shared runtime assets and optional Vivecraft overlay |
+| `datapacks/` | [zbk_datapacks](https://github.com/Stews-Creations/zbk_datapacks) | Core gameplay, map add-ons, and the developer template |
+| `resourcepacks/` | [zbk_resourcepacks](https://github.com/Stews-Creations/zbk_resourcepacks) | Core and map assets with optional Vivecraft overlays |
 | `vr_mod/` | [zbk_vr_mod](https://github.com/Stews-Creations/zbk_vr_mod) | Optional Vivecraft companion mod |
 | `manager/` | [zbk_manager](https://github.com/Stews-Creations/zbk_manager) | Desktop authoring, installation, and export application |
 | `structures/` | [zbk_structures](https://github.com/Stews-Creations/zbk_structures) | Reusable building templates |
 | `maps/` | [zbk_maps](https://github.com/Stews-Creations/zbk_maps) | Finished-map catalog, installation guides, and release downloads |
 
-The initial implementation includes only reusable core systems. Nacht and Der Eisendrache-specific content and Blockbench authoring projects are outside its scope. Required exported runtime models and animations remain eligible for migration after their dependencies are checked.
+The core includes reusable gameplay and authoring systems without map selection, map-exclusive events, or sound-pack selection. Nacht and Der Eisendrache are separate optional datapacks and resource packs. The `zbk_template` datapack provides a developer reference for the event API. Blockbench authoring projects are excluded; required generated runtime models and animations remain included. All packs start at version `1.0.0`.
 
 The [finished-map repository](https://github.com/Stews-Creations/zbk_maps) is separate from the core components. No finished maps are published there yet; future playable world downloads will be release assets, with compatibility and installation details for each map.
 
@@ -40,7 +40,7 @@ These commands select the component commits recorded by the parent repository. C
 
 ## Architecture and releases
 
-The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the core-only boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. See the [structures installation guide](https://github.com/Stews-Creations/zbk_structures#install-in-a-custom-map) for custom-world templates and the [VR mod guide](https://github.com/Stews-Creations/zbk_vr_mod#build) for building and installing the optional client companion. Other installation and release instructions will be added with their implementations.
+The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the core-only boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. See the [structures installation guide](https://github.com/Stews-Creations/zbk_structures#install-in-a-custom-map) for custom-world templates and the [VR mod guide](https://github.com/Stews-Creations/zbk_vr_mod#build) for building and installing the optional client companion. Build the core datapack ZIP using the [datapack guide](datapacks/README.md), and install the matching `zombies_build_kit` resource pack using the [resource-pack guide](resourcepacks/README.md). The optional Vivecraft overlay goes above the base resource pack.
 
 ## Contributions and feedback
 
