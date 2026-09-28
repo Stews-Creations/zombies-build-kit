@@ -8,11 +8,11 @@ In development for Minecraft Java 26.2. No playable release is available yet.
 
 | Folder | Repository | Responsibility |
 | --- | --- | --- |
-| [datapacks](datapacks/README.md) | [zbk_datapacks](https://github.com/Stews-Creations/zbk_datapacks) | Core gameplay and reusable Build Kit functions |
-| [resourcepacks](resourcepacks/README.md) | [zbk_resourcepacks](https://github.com/Stews-Creations/zbk_resourcepacks) | Shared runtime assets and optional Vivecraft overlay |
-| [vr_mod](vr_mod/README.md) | [zbk_vr_mod](https://github.com/Stews-Creations/zbk_vr_mod) | Optional Vivecraft companion mod |
-| [manager](manager/README.md) | [zbk_manager](https://github.com/Stews-Creations/zbk_manager) | Desktop authoring, installation, and export application |
-| [structures](structures/README.md) | [zbk_structures](https://github.com/Stews-Creations/zbk_structures) | Reusable building templates |
+| `datapacks/` | [zbk_datapacks](https://github.com/Stews-Creations/zbk_datapacks) | Core gameplay and reusable Build Kit functions |
+| `resourcepacks/` | [zbk_resourcepacks](https://github.com/Stews-Creations/zbk_resourcepacks) | Shared runtime assets and optional Vivecraft overlay |
+| `vr_mod/` | [zbk_vr_mod](https://github.com/Stews-Creations/zbk_vr_mod) | Optional Vivecraft companion mod |
+| `manager/` | [zbk_manager](https://github.com/Stews-Creations/zbk_manager) | Desktop authoring, installation, and export application |
+| `structures/` | [zbk_structures](https://github.com/Stews-Creations/zbk_structures) | Reusable building templates |
 
 The initial implementation includes only reusable core systems. Nacht and Der Eisendrache-specific content and Blockbench authoring projects are outside its scope. Required exported runtime models and animations remain eligible for migration after their dependencies are checked.
 
