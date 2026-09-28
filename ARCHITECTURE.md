@@ -1,6 +1,6 @@
 # Core workspace architecture
 
-The parent repository coordinates independently versioned components. Implementation belongs in the component that owns its behavior; integration documentation and cross-component release checks belong here. Reusable structure templates have been migrated; the gameplay, resource-pack, and application components remain foundations.
+The parent repository coordinates independently versioned components. Implementation belongs in the component that owns its behavior; integration documentation and cross-component release checks belong here. Reusable structure templates and the VR companion mod have been migrated; the core gameplay, resource-pack, and Manager components remain foundations.
 
 ## Ownership
 
