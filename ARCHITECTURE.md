@@ -1,6 +1,6 @@
 # Core workspace architecture
 
-The parent repository coordinates independently versioned components. Implementation belongs in the component that owns its behavior; integration documentation and cross-component release checks belong here. The current checkout is a foundation, without migrated runtime content.
+The parent repository coordinates independently versioned components. Implementation belongs in the component that owns its behavior; integration documentation and cross-component release checks belong here. Reusable structure templates have been migrated; the gameplay, resource-pack, and application components remain foundations.
 
 ## Ownership
 
@@ -10,13 +10,13 @@ The parent repository coordinates independently versioned components. Implementa
 | `resourcepacks/` | Core models, textures, sounds, fonts, HUD, and optional VR presentation overrides | Matches core datapack resource identifiers |
 | `vr_mod/` | Optional client-side Fabric/Vivecraft integration | Does not own server gameplay |
 | `manager/` | Desktop installation, world preparation, and artifact packaging | Consumes component outputs and does not become their source of truth |
-| `structures/` | Reusable structure templates and their provenance | Runtime versus builder dependencies must be established during the migration audit |
+| `structures/` | Reusable structure templates and their provenance | Shared placement, door animation, clearing, and reset functions consume world-installed templates |
 
 Each component is a Git submodule with independent history. The parent records exact commits. A component may be developed independently, but changes to shared identifiers or installation contracts require integration validation before updating the parent.
 
 ## Runtime dependencies
 
-The core datapack and base resource pack form a compatible pair. The VR mod and VR overlay are optional client additions. Manager is an optional authoring and distribution tool. Structure dependencies will be documented from the audited callers before implementation is marked complete.
+The core datapack and base resource pack form a compatible pair. The VR mod and VR overlay are optional client additions. Manager is an optional authoring and distribution tool. External structure templates support both Build Kit placement and subsequent shared runtime operations, so the complete set stays installed in the world. Datapack-owned Pack-a-Punch templates remain a separate namespace and are not duplicated into the external bundle.
 
 Submodules manage source versions only. Future map add-ons will need an explicit gameplay interface and compatible core version. No add-on registration, dependency detection, or map selection system is implemented by this foundation.
 

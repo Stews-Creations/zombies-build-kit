@@ -2,7 +2,7 @@
 
 Zombies Build Kit is a Minecraft Java gameplay and map-authoring project. This repository coordinates the core components through Git submodules pinned to compatible commits.
 
-In development for Minecraft Java 26.2. No playable release is available yet.
+In development for Minecraft Java 26.2. Structure templates are available; the other components are not ready yet. There is no complete playable release.
 
 ## Components
 
@@ -37,4 +37,4 @@ These commands select the component commits recorded by the parent repository. C
 
 ## Architecture and releases
 
-The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the core-only boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. Installation and release instructions will be added with the implementations.
+The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the core-only boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. The [structures installation guide](https://github.com/Stews-Creations/zbk_structures#install-in-a-custom-map) explains where to copy templates into a custom world. Other installation and release instructions will be added with their implementations.
