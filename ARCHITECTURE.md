@@ -33,7 +33,7 @@ Blockbench projects and authoring workspaces are excluded. Exported models and a
 
 ## Packaging contract
 
-Package explicit runtime roots rather than the entire development checkout. Exports must exclude repository metadata, local settings, development plans, assistant instructions/caches, and Blockbench sources. Core exports also exclude map-specific content; finished-map releases include only the selected map and its documented dependencies. Git ignore rules alone do not filter filesystem-based packaging. Every distributed component must include its LICENSE.md, LICENSES/, NOTICE, and MEDIA_PERMISSION.md, together with applicable third-party notices. Custom-map downloads containing ZBK material must retain the corresponding notices and terms.
+Package explicit runtime roots rather than the entire development checkout. Exports must exclude repository metadata, local settings, development plans, assistant instructions/caches, and Blockbench sources. Core exports also exclude map-specific content; finished-map releases include only the selected map and its documented dependencies. Git ignore rules alone do not filter filesystem-based packaging. Every distributed component must include its LICENSES/ directory, including LICENSE.md, NOTICE, and MEDIA_PERMISSION.md, together with applicable third-party notices. Custom-map downloads containing ZBK material must retain the corresponding notices and terms.
 
 Required runtime binaries such as PNG, OGG, and NBT files remain versioned. Preserve build inputs such as lockfiles and the Gradle wrapper. Build output, downloaded dependencies, local worlds, test servers, and exported archives do not belong in source commits.
 
