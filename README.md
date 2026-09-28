@@ -40,7 +40,7 @@ These commands select the component commits recorded by the parent repository. C
 
 ## Architecture and releases
 
-The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the core-only boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. See the [structures installation guide](https://github.com/Stews-Creations/zbk_structures#install-in-a-custom-map) for custom-world templates and the [VR mod guide](https://github.com/Stews-Creations/zbk_vr_mod#build) for building and installing the optional client companion. Build the core datapack ZIP using the [datapack guide](datapacks/README.md), and install the matching `zombies_build_kit` resource pack using the [resource-pack guide](resourcepacks/README.md). The optional Vivecraft overlay goes above the base resource pack.
+The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the core-only boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. See the [structures installation guide](https://github.com/Stews-Creations/zbk_structures#install-in-a-custom-map) for custom-world templates and the [VR mod guide](https://github.com/Stews-Creations/zbk_vr_mod#build) for building and installing the optional client companion. Build the core datapack ZIP using the [datapack guide](datapacks/README.md), and download the matching Core resource pack and optional Vivecraft overlay from the [resource-pack releases](https://github.com/Stews-Creations/zbk_resourcepacks/releases). Map-specific resource packs stay in source and will be bundled into finished world downloads.
 
 ## Build your own map add-on
 
@@ -82,10 +82,10 @@ For your own map, put its resource pack above Core and any corresponding Vivecra
 Keep the source packs separate, then assemble a tested combination for each world:
 
 1. Put the Core datapack ZIP and the chosen map datapack ZIP in `<world>/datapacks/`. Each ZIP must have `pack.mcmeta` at its root. Keeping two datapacks inside one world preserves the event API; they do not need to be merged into one datapack. Install the required world structures using the [structures guide](structures/README.md).
-2. Either distribute the matching resource packs with the order above, or build one world resource pack as `<world>/resources.zip`. For a combined pack, start with Core assets, apply the map's assets above them, and keep one compatible root `pack.mcmeta`. Resolve shared JSON files such as sound catalogs and font definitions deliberately; blind folder copying can discard entries. Preserve licenses, notices, and credit. Keep Vivecraft transforms as an optional higher-priority client overlay unless the bundle specifically targets VR.
+2. For an official ZBK map release, build one world resource pack as `<world>/resources.zip` so players need only the world download. Start with Core assets, apply the map's assets above them, and keep one compatible root `pack.mcmeta`. Resolve shared JSON files such as sound catalogs and font definitions deliberately; blind folder copying can discard entries. Preserve licenses, notices, and credit. Keep Vivecraft transforms as an optional higher-priority client overlay unless the bundle specifically targets VR.
 3. Test that exact world and resource combination before publishing. A multiplayer server must distribute or configure its resource pack separately; the server does not send its resource-pack folder to clients automatically. See the [finished-map repository](maps/README.md) for distribution guidance.
 
-This is the intended assembly approach for our Nacht and DE worlds too. The current packaging tools export separate packs; automatic world bundling and resource-pack merging are not implemented yet.
+This is the intended assembly approach for our Nacht and DE worlds too. The current packaging tools export separate packs; automatic world bundling and resource-pack merging are not implemented yet. No finished map download is published yet.
 
 ## Contributions and feedback
 
