@@ -38,3 +38,9 @@ These commands select the component commits recorded by the parent repository. C
 ## Architecture and releases
 
 The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the core-only boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. The [structures installation guide](https://github.com/Stews-Creations/zbk_structures#install-in-a-custom-map) explains where to copy templates into a custom world. Other installation and release instructions will be added with their implementations.
+
+## Contributions and feedback
+
+We are not currently accepting outside development help or pull/merge requests while we establish the core project. Please hold off on submitting changes for inclusion.
+
+You are welcome to fork the repository and [open issues](https://github.com/Stews-Creations/zombies-build-kit/issues) to report bugs, suggest features, ask questions, or share feedback. We will update this section when we are ready to accept contributions.
