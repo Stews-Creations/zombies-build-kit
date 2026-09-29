@@ -54,7 +54,7 @@ Stage every intentionally updated component, not only `datapacks` when changes s
 
 Every repository owns its own ignore and attribute rules. Parent rules do not replace a submodule's configuration. Before committing, inspect both the parent status and component status; an ignored file can still be added with force, and ignore rules do not untrack existing files.
 
-Keep local instructions, assistant settings, prompts, and reports outside tracked source. Store ad hoc planning artifacts in the ignored `.codex/` directory. Keep durable product architecture and maintained validation tools versioned. When configuring a repository-local exclusion, resolve its location with `git rev-parse --git-path info/exclude`; a submodule's `.git` entry may be a file.
+Keep local instructions, assistant settings, prompts, and reports outside tracked source. Store ad hoc planning artifacts in the ignored `.codex/` directory. Keep durable product architecture versioned. Each component ignores its `tools/` folder, so development tools stay local; a script that a workflow runs belongs under `.github/scripts/`. When configuring a repository-local exclusion, resolve its location with `git rev-parse --git-path info/exclude`; a submodule's `.git` entry may be a file.
 
 Text files use LF, with Windows batch scripts using CRLF. Binary assets are marked explicitly. Keep runtime assets and build inputs; ignore generated deliverables and caches by their output locations.
 

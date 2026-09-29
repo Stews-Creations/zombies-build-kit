@@ -2,7 +2,7 @@
 
 Zombies Build Kit is a Minecraft Java gameplay and map-authoring project. This repository coordinates the shared components through Git submodules pinned to compatible commits.
 
-In development for Minecraft Java 26.2. Shared base datapack and resource packs, structure templates, and the VR companion mod are available for integration testing. Manager is not migrated. The maps component contains editable Nacht and template worlds; playable releases still require testing.
+In development for Minecraft Java 26.2. Shared base datapack and resource packs, structure templates, and the VR companion mod are available for integration testing. The server app hosts a prepared world for multiplayer. The maps component contains editable Nacht and template worlds; playable releases still require testing.
 
 ## Components
 
@@ -11,7 +11,7 @@ In development for Minecraft Java 26.2. Shared base datapack and resource packs,
 | `datapacks/` | [zbk_datapacks](https://github.com/Stews-Creations/zbk_datapacks) | shared gameplay, bundled structure templates, map add-ons, and the developer template |
 | `resourcepacks/` | [zbk_resourcepacks](https://github.com/Stews-Creations/zbk_resourcepacks) | base and map assets with optional Vivecraft overlays |
 | `vr_mod/` | [zbk_vr_mod](https://github.com/Stews-Creations/zbk_vr_mod) | Optional Vivecraft companion mod |
-| `manager/` | [zbk_manager](https://github.com/Stews-Creations/zbk_manager) | Desktop authoring, installation, and export application |
+| `server/` | [zbk_server](https://github.com/Stews-Creations/zbk_server) | Desktop app that hosts a world as a multiplayer server |
 | `maps/` | [zbk_maps](https://github.com/Stews-Creations/zbk_maps) | Editable worlds, dependency manifests, local links, and portable builds |
 
 The base pack includes reusable gameplay and authoring systems without map selection, map-exclusive events, or sound-pack selection. Nacht and Der Eisendrache are separate optional datapacks and resource packs. The `zbk_template` datapack provides a developer reference for the event hooks. Blockbench authoring projects are excluded; required generated runtime models and animations remain included. All packs start at version `1.0.0`.
@@ -39,7 +39,7 @@ These commands select the component commits recorded by the parent repository. C
 
 ## Architecture and releases
 
-The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the shared gameplay boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. The base pack includes its reusable structure templates in the datapack. See the [VR mod guide](https://github.com/Stews-Creations/zbk_vr_mod#build) for building and installing the optional client companion. Build the base datapack ZIP using the [datapack guide](datapacks/README.md), and download the matching base resource pack and optional Vivecraft overlay from the [resource-pack releases](https://github.com/Stews-Creations/zbk_resourcepacks/releases). Map-specific resource packs stay in source and will be bundled into finished world downloads.
+The [architecture overview](ARCHITECTURE.md) defines component ownership, dependencies, and the shared gameplay boundary. Submodule commits record a source combination; they do not install Minecraft packs or certify a playable release. The base pack includes its reusable structure templates in the datapack. See the [VR mod guide](https://github.com/Stews-Creations/zbk_vr_mod#build) for building and installing the optional client companion. Download the base datapack and template ZIPs from the [datapack releases](https://github.com/Stews-Creations/zbk_datapacks/releases), and download the matching base resource pack and optional Vivecraft overlay from the [resource-pack releases](https://github.com/Stews-Creations/zbk_resourcepacks/releases). Map-specific resource packs stay in source and will be bundled into finished world downloads.
 
 ## Build your own map add-on
 
@@ -82,7 +82,7 @@ Keep the source packs separate, then assemble a tested combination for each worl
 
 1. Put the base datapack ZIP and the chosen map datapack ZIP in `<world>/datapacks/`. Each ZIP must have `pack.mcmeta` at its root. Keeping two datapacks inside one world preserves the event hooks; they do not need to be merged into one datapack. The base pack supplies its structure templates automatically; no separate structure installation is required.
 2. For an official ZBK map release, build one world resource pack as `<world>/resourcepacks/resources.zip` so players need only the world download. Start with the base pack assets, apply the map's assets above them, and keep one compatible root `pack.mcmeta`. Resolve shared JSON files such as sound catalogs and font definitions deliberately; blind folder copying can discard entries. Preserve licenses, notices, and credit. Keep Vivecraft transforms as an optional higher-priority client overlay unless the bundle specifically targets VR.
-3. Test that exact world and resource combination before publishing. A multiplayer server must distribute or configure its resource pack separately; the server does not send its resource-pack folder to clients automatically. See the [finished-map repository](maps/README.md) for distribution guidance.
+3. Test that exact world and resource combination before publishing. A multiplayer server must distribute or configure its resource pack separately; the server does not send its resource-pack folder to clients automatically. The [server app](server/README.md) does this for a selected world. See the [finished-map repository](maps/README.md) for distribution guidance.
 
 The [maps builder](maps/README.md#build-portable-worlds) assembles Nacht and template worlds automatically from their dependency manifests, including separate datapacks with bundled structures and one merged resource pack. Resource files are overlaid in manifest order; duplicate JSON files are replaced whole rather than merged by key. Author complete overrides when paths overlap. These workflow artifacts are development builds and require gameplay testing before release. Der Eisendrache is not currently included in the world build manifests.
 
