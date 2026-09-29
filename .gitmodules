@@ -7,9 +7,9 @@
 [submodule "vr_mod"]
 	path = vr_mod
 	url = https://github.com/Stews-Creations/zbk_vr_mod.git
-[submodule "manager"]
-	path = manager
-	url = https://github.com/Stews-Creations/zbk_manager.git
+[submodule "server"]
+	path = server
+	url = https://github.com/Stews-Creations/zbk_server.git
 [submodule "maps"]
 	path = maps
 	url = https://github.com/Stews-Creations/zbk_maps.git
