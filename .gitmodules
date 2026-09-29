@@ -10,9 +10,6 @@
 [submodule "manager"]
 	path = manager
 	url = https://github.com/Stews-Creations/zbk_manager.git
-[submodule "structures"]
-	path = structures
-	url = https://github.com/Stews-Creations/zbk_structures.git
 [submodule "maps"]
 	path = maps
 	url = https://github.com/Stews-Creations/zbk_maps.git
